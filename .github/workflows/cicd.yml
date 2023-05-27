@@ -3,6 +3,8 @@ name: Simple Workflow
 on:
   pull_request:
     branches: [ main ]
+  oush:
+    branches: [ main ]
 
 jobs:
   CICD:
