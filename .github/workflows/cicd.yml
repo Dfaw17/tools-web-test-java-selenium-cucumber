@@ -31,5 +31,8 @@ jobs:
           curl -s -L "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -o chromedriver_linux64.zip
           sudo unzip chromedriver_linux64.zip -d /usr/local/bin
 
-      - name: Run tes automation
-        run: mvn -B package --file pom.xml clean test
+      - name: Install dependencies
+        run: mvn -B package --file pom.xml
+
+      - name: Run test
+        run: mvn clean test
