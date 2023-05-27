@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: runners.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.991 s <<< FAILURE! - in runners.TestRunner
+Testing Zip Code feature.Submit invalid zipcode  Time elapsed: 4.809 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at helper.ActionsGeneral.verifyTextDisplayed(ActionsGeneral.java:36)
+	at pages.LoginPage.verifyTextInScreen(LoginPage.java:43)
+	at stepDef.LoginStep.userGetAnErrorMessage(LoginStep.java:43)
+	at ✽.user get an error message "Invalid Zipcode"(file:///Users/pintu/IdeaProjects/jayjay/src/test/java/features/zipCode.feature:29)
+
