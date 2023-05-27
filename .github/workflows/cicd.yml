@@ -23,8 +23,8 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
-      - name: Build with Maven
+      - name: Build with maven
         run: mvn -B package --file pom.xml
 
-      - name: Run automation
+      - name: Run tes automation
         run: mvn clean test
