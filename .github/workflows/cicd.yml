@@ -29,11 +29,8 @@ jobs:
 
       - name: Set up ChromeDriver
         run: |
-          CHROME_VERSION=$(chromium-browser --product-version)
-          CHROME_DRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION})
           wget https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
 
       - name: Run tes automation
         run: mvn -B package --file pom.xml clean test
