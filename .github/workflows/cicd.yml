@@ -23,6 +23,11 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
+      - name: Install Google Chrome
+        run: |
+          chmod +x ./scripts/InstallChrome.sh
+                      ./scripts/InstallChrome.sh 
+
       - name: Build with maven
         run: mvn -B package --file pom.xml
 
