@@ -9,13 +9,12 @@ on:
 jobs:
   CICD:
     environment: Production
-    runs-on: aws-hosted-mobile-runner-infra
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 2
-
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
@@ -25,7 +24,7 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn compile
+        run: mvn -B package --file pom.xml
 
-      - name: Run automation trigger by pull request
+      - name: Run automation
         run: mvn clean install
