@@ -23,14 +23,13 @@ jobs:
           cache: maven
 
       - name: Set up Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
+        uses: browser-actions/setup-chrome@v1
 
       - name: Set up ChromeDriver
         run: |
-          wget https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
+          LATEST_CHROMEDRIVER_VERSION=$(curl -sL https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          curl -s -L "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -o chromedriver_linux64.zip
+          sudo unzip chromedriver_linux64.zip -d /usr/local/bin
 
       - name: Run tes automation
         run: mvn -B package --file pom.xml clean test
