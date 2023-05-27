@@ -1,7 +1,0 @@
-stepDef/LoginStep.class
-stepDef/ZipCodeStep.class
-pages/ZipCodePage.class
-helper/ActionsGeneral.class
-runners/TestRunner.class
-stepDef/HookStep.class
-pages/LoginPage.class
