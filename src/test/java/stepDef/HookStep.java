@@ -30,7 +30,6 @@ public class HookStep {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(option);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
 
         executedScenarios++;
     }
