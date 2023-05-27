@@ -22,11 +22,15 @@ public class HookStep {
 
         //CODE HERE
         ChromeOptions option = new ChromeOptions();
+        option.addArguments("--no-sandbox");
+        option.addArguments("--disable-dev-shm-usage");
+        option.addArguments("--headless");
         option.addArguments("--remote-allow-origins=*");
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(option);
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
 
         executedScenarios++;
     }
