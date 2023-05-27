@@ -23,8 +23,18 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
-      - name: Build with maven
-        run: mvn -B package --file pom.xml
+      - name: Set up Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+
+      - name: Set up ChromeDriver
+        run: |
+          CHROME_VERSION=$(chromium-browser --product-version)
+          CHROME_DRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION})
+          wget https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
 
       - name: Run tes automation
-        run: mvn clean test
+        run: mvn -B package --file pom.xml clean test
