@@ -27,4 +27,4 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Run automation
-        run: mvn clean install
+        run: mvn clean test
