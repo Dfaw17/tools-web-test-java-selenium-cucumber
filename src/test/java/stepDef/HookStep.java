@@ -25,7 +25,7 @@ public class HookStep {
         option.addArguments("--no-sandbox");
         option.addArguments("--disable-dev-shm-usage");
         option.addArguments("--headless");
-//        option.addArguments("--remote-allow-origins=*");
+        option.addArguments("--remote-allow-origins=*");
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(option);

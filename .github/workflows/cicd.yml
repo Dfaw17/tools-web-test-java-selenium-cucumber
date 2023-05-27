@@ -36,7 +36,7 @@ jobs:
         run: sudo apt install -y chromium-browser
 
       - name: Build with maven
-        run: mvn -B package --file pom.xml
+        run: mvn install
 
       - name: Run tes automation
-        run: mvn clean test
+        run: mvn clean verify
